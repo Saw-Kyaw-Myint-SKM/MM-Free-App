@@ -9,7 +9,7 @@ export function Navbar({
   onCtaClick: _onCtaClick,
 }: {
   currentPage: string;
-  activeNav: "home" | "applications";
+  activeNav: "home" | "applications" | "contact";
   onNavigate: (navId: string) => void;
   onCtaClick?: () => void;
 }) {
@@ -18,7 +18,7 @@ export function Navbar({
   const navItems = [
     { label: "ပင်မ", icon: Home, id: "home" },
     { label: "အက်ပ်များ", icon: Grid3X3, id: "applications" },
-    { label: "ဆက်သွယ်ရန်", icon: Mail, id: "footer" },
+    { label: "ဆက်သွယ်ရန်", icon: Mail, id: "contact" },
   ];
 
   const scrollTo = (id: string) => {
