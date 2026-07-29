@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Mail, Play } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { slides } from "../data/applications";
 import logo from "../assets/images/Logo.png";
 
 export function HomeSection() {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ export function HomeSection() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 sm:gap-3">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <button
                 onClick={() =>
                   document
@@ -52,6 +54,16 @@ export function HomeSection() {
               >
                 အက်ပ်များ ကြည့်ရန်
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate("/contact")}
+                className="sm:hidden group relative overflow-hidden px-3 py-1.5 font-semibold rounded-md text-xs flex items-center gap-1.5 text-white shadow-md shadow-teal-500/25 hover:shadow-lg hover:shadow-teal-500/35 transition-all active:scale-[0.98]"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500" />
+                <span className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Mail className="relative w-3.5 h-3.5" />
+                <span className="relative">ဆက်သွယ်ရန်</span>
               </button>
               <button
                 onClick={() => {

@@ -16,7 +16,7 @@ export function ScreenshotGallery({ screenshots, appName }: { screenshots: strin
 
   return (
     <div className="relative">
-      <div className="relative aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
+      <div className="relative aspect-[16/10] lg:aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100">
         {screenshots.map((img, idx) => (
           <img
             key={idx}

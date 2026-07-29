@@ -1,4 +1,4 @@
-const MESSAGE = "AI power ကို သုံးပြီး Free Application ဖန်တီးရန်";
+const MESSAGE = "AI စွမ်းအားကို အသုံးပြု၍ အခမဲ့နှင့် စျေးနှုန်းချိုသာသော ဆော့ဖ်ဝဲလ်များကို ဖန်တီးရန်။";
 
 export function AnnouncementMarquee() {
   return (

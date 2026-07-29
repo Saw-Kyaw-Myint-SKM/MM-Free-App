@@ -8,11 +8,13 @@ export function ApplicationCard({
   onClick,
   onDownload,
   index = 0,
+  compact = false,
 }: {
   app: AppItem;
   onClick: (app: AppItem) => void;
   onDownload?: (label?: string) => void;
   index?: number;
+  compact?: boolean;
 }) {
   const [ref, isInView] = useInView();
   const status = getAppStatus(app);
@@ -45,13 +47,21 @@ export function ApplicationCard({
       aria-disabled={isDisabled}
     >
       <div
-        className={`relative h-full rounded-2xl overflow-hidden border bg-white transition-all duration-300 ${
+        className={`relative h-full overflow-hidden border bg-white transition-all duration-300 ${
+          compact ? 'rounded-xl lg:rounded-xl' : 'rounded-2xl'
+        } ${
           isDisabled
             ? 'border-slate-200/80 bg-slate-50'
             : 'border-slate-200/90 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/60 hover:-translate-y-0.5'
         }`}
       >
-        <div className="relative aspect-[16/11] sm:aspect-[16/10] overflow-hidden bg-slate-100">
+        <div
+          className={`relative overflow-hidden bg-slate-100 ${
+            compact
+              ? 'aspect-[16/11] sm:aspect-[16/9]'
+              : 'aspect-[16/11] sm:aspect-[16/10]'
+          }`}
+        >
           <img
             src={app.screenshots[0]}
             alt={app.name}
@@ -104,13 +114,19 @@ export function ApplicationCard({
           </div>
 
           <div
-            className={`absolute -bottom-3.5 left-2.5 sm:left-3 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center shadow-md ring-2 ring-white ${
+            className={`absolute -bottom-3.5 left-2.5 sm:left-3 rounded-xl flex items-center justify-center shadow-md ring-2 ring-white ${
+              compact ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-9 sm:h-9'
+            } ${
               isDisabled
                 ? 'bg-slate-400'
                 : `bg-gradient-to-br ${app.accent}`
             }`}
           >
-            <app.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+            <app.icon
+              className={`text-white ${
+                compact ? 'w-3 h-3 sm:w-3.5 sm:h-3.5' : 'w-3.5 h-3.5 sm:w-4 sm:h-4'
+              }`}
+            />
           </div>
 
           {isDisabled && (
@@ -122,7 +138,13 @@ export function ApplicationCard({
           )}
         </div>
 
-        <div className="pt-5 sm:pt-6 px-2.5 sm:px-3 pb-2.5 sm:pb-3">
+        <div
+          className={
+            compact
+              ? 'pt-4 sm:pt-5 px-2 sm:px-2.5 pb-2 sm:pb-2.5'
+              : 'pt-5 sm:pt-6 px-2.5 sm:px-3 pb-2.5 sm:pb-3'
+          }
+        >
           <div className="mb-1.5 min-w-0">
             <h3
               className={`font-bold truncate text-[11px] sm:text-xs leading-tight ${
@@ -156,9 +178,9 @@ export function ApplicationCard({
           </div>
 
           <p
-            className={`hidden sm:block text-[11px] mb-2 line-clamp-2 leading-relaxed ${
-              isDisabled ? 'text-slate-400' : 'text-slate-600'
-            }`}
+            className={`hidden sm:block mb-2 leading-relaxed ${
+              compact ? 'text-[10px] line-clamp-1' : 'text-[11px] line-clamp-2'
+            } ${isDisabled ? 'text-slate-400' : 'text-slate-600'}`}
           >
             {app.description}
           </p>

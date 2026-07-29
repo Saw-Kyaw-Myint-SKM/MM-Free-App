@@ -166,12 +166,14 @@ export function AppDetail({
         </div>
       </section>
 
-      <section className="py-6 sm:py-10 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50">
+      <section className="py-6 sm:py-8 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-sm sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4">
-            မျက်နှာပြင်ဓာတ်ပုံများ
-          </h2>
-          <ScreenshotGallery screenshots={app.screenshots} appName={app.name} />
+          <div className="max-w-xl lg:max-w-4xl mx-auto">
+            <h2 className="text-sm sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4">
+              မျက်နှာပြင်ဓာတ်ပုံများ
+            </h2>
+            <ScreenshotGallery screenshots={app.screenshots} appName={app.name} />
+          </div>
         </div>
       </section>
 
@@ -235,21 +237,24 @@ export function AppDetail({
         </div>
       </section>
 
-      <section className="py-8 sm:py-12 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 ">
+      <section className="py-6 sm:py-8 bg-gradient-to-br from-slate-50 via-gray-50 to-zinc-50 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-sm sm:text-lg font-bold text-slate-900 mb-4 sm:mb-6">
-            ဆက်စပ် အပလီကေးရှင်းများ
-          </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 lg:gap-5 md:mb-10 mb-12">
-            {relatedApps.map((rapp, idx) => (
-              <ApplicationCard
-                key={rapp.id}
-                app={rapp}
-                onClick={onSelectApp}
-                onDownload={onDownload}
-                index={idx}
-              />
-            ))}
+          <div className="max-w-4xl lg:max-w-5xl mx-auto">
+            <h2 className="text-sm sm:text-lg font-bold text-slate-900 mb-3 sm:mb-5">
+              ဆက်စပ် အပလီကေးရှင်းများ
+            </h2>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 md:mb-6 mb-10">
+              {relatedApps.map((rapp, idx) => (
+                <ApplicationCard
+                  key={rapp.id}
+                  app={rapp}
+                  onClick={onSelectApp}
+                  onDownload={onDownload}
+                  index={idx}
+                  compact
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
