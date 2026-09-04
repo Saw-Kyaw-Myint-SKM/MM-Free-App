@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 
 export function useInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
-  const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setIsInstallable(true);
     };
 
     window.addEventListener("beforeinstallprompt", handler);
@@ -16,14 +14,18 @@ export function useInstallPrompt() {
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
+  const isInstallable = true;
+
   const install = async () => {
-    if (!deferredPrompt) return;
-    (deferredPrompt as any).prompt();
-    const { outcome } = await (deferredPrompt as any).userChoice;
-    if (outcome === "accepted") {
-      setIsInstallable(false);
+    if (deferredPrompt) {
+      (deferredPrompt as any).prompt();
+      const { outcome } = await (deferredPrompt as any).userChoice;
+      if (outcome === "accepted") {
+        setDeferredPrompt(null);
+      }
+    } else {
+      window.open("https://apkpure.com/p/com.anonymous.clothespos", "_blank");
     }
-    setDeferredPrompt(null);
   };
 
   return { isInstallable, install };
