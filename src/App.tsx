@@ -97,12 +97,16 @@ export default function App() {
     }
   }, [location.pathname, isDetail, isContact]);
 
-  const showComingSoon = (label?: string) => {
-    show(
-      label
-        ? `${label} မကြာမီ ရရှိမည်။`
-        : "ဆော့ဖ်ဝဲလ် ဒေါင်းလုဒ် လုပ်ဆောင်ချက် မကြာမီ ရရှိမည်။",
-    );
+  const handleDownload = (app?: { name?: string; downloadUrl?: string }) => {
+    if (app?.downloadUrl) {
+      window.open(app.downloadUrl, "_blank");
+    } else {
+      show(
+        app?.name
+          ? `${app.name} မကြာမီ ရရှိမည်။`
+          : "ဆော့ဖ်ဝဲလ် ဒေါင်းလုဒ် လုပ်ဆောင်ချက် မကြာမီ ရရှိမည်။",
+      );
+    }
   };
 
   const handleNavigate = (navId: string) => {
@@ -156,7 +160,7 @@ export default function App() {
           element={
             <HomePage
               onSelectApp={handleSelectApp}
-              onDownload={showComingSoon}
+              onDownload={handleDownload}
             />
           }
         />
@@ -165,7 +169,7 @@ export default function App() {
           element={
             <AppDetailPage
               onSelectApp={handleSelectApp}
-              onDownload={showComingSoon}
+              onDownload={handleDownload}
               onBack={handleBack}
             />
           }

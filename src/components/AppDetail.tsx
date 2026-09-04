@@ -9,6 +9,8 @@ import {
   HelpCircle,
   Clock,
   Lock,
+  Store,
+  MessageCircle,
 } from "lucide-react";
 import type { AppItem } from "../types";
 import { getAppStatus } from "../types";
@@ -16,6 +18,7 @@ import { applications } from "../data";
 import { ScreenshotGallery } from "./ScreenshotGallery";
 import { FAQAccordion } from "./FAQAccordion";
 import { ApplicationCard } from "./ApplicationCard";
+import { ApkPureIcon } from "./ApkPureIcon";
 
 export function AppDetail({
   app,
@@ -26,7 +29,7 @@ export function AppDetail({
   app: AppItem;
   onBack: () => void;
   onSelectApp: (app: AppItem) => void;
-  onDownload?: (label?: string) => void;
+  onDownload?: (app?: { name?: string; downloadUrl?: string }) => void;
 }) {
   const relatedApps = applications.filter((a) => a.id !== app.id).slice(0, 3);
   const status = getAppStatus(app);
@@ -52,9 +55,13 @@ export function AppDetail({
             <div className="lg:col-span-2">
               <div className="flex items-start gap-3 sm:gap-4">
                 <div
-                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${app.accent} flex items-center justify-center shadow-lg flex-shrink-0`}
+                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${app.accent} flex items-center justify-center shadow-lg flex-shrink-0 overflow-hidden`}
                 >
-                  <app.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  {app.logo ? (
+                    <img src={app.logo} alt={app.name} className="w-full h-full object-cover" />
+                  ) : app.icon ? (
+                    <app.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  ) : null}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
@@ -120,19 +127,46 @@ export function AppDetail({
                     မကြာမီ ဒေါင်းလုဒ်ရရှိမည်
                   </button>
                 ) : (
-                  <button
-                    type="button"
-                    onClick={() => onDownload?.(`${app.name} ဒေါင်းလုဒ်`)}
-                    className="px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-600 text-white font-semibold rounded-lg sm:rounded-xl hover:bg-blue-700 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm shadow-lg shadow-blue-500/20"
-                  >
-                    <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    ယခု ဒေါင်းလုဒ်လုပ်ရန်
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => onDownload?.(app)}
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-600 text-white font-semibold rounded-lg sm:rounded-xl hover:bg-blue-700 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm shadow-lg shadow-blue-500/20"
+                    >
+                      <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      ယခု ဒေါင်းလုဒ်လုပ်ရန်
+                    </button>
+                    {app.apkPureUrl && (
+                      <a
+                        href={app.apkPureUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-emerald-700 font-semibold rounded-lg sm:rounded-xl border border-emerald-200 hover:bg-emerald-50 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm"
+                      >
+                        <ApkPureIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        APKPure မှ ဒေါင်းရန်
+                      </a>
+                    )}
+                  </>
                 )}
-                <button className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-slate-700 font-semibold rounded-lg sm:rounded-xl border border-slate-200 hover:border-slate-300 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm">
+                <a
+                  href="https://www.tiktok.com/@aisourcemm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-slate-700 font-semibold rounded-lg sm:rounded-xl border border-slate-200 hover:border-slate-300 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm"
+                >
                   <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   သရုပ်ပြကြည့်ရန်
-                </button>
+                </a>
+                <a
+                  href="https://t.me/aisourcemm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 sm:px-5 py-2 sm:py-2.5 bg-white text-sky-700 font-semibold rounded-lg sm:rounded-xl border border-sky-200 hover:bg-sky-50 transition-all flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  မေးမြန်းရန်
+                </a>
               </div>
             </div>
 
@@ -176,6 +210,29 @@ export function AppDetail({
           </div>
         </div>
       </section>
+
+      {app.businessTypes && app.businessTypes.length > 0 && (
+        <section className="py-6 sm:py-8 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-xl lg:max-w-4xl mx-auto">
+              <h2 className="text-sm sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4 flex items-center gap-1.5 sm:gap-2">
+                <Store className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600" />
+                ဘယ်ဆိုင်တွေမှာ သုံးလို့ ရလဲ?
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {app.businessTypes.map((type, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 bg-white rounded-full text-[11px] sm:text-xs font-medium text-slate-700 border border-amber-200 shadow-sm"
+                  >
+                    {type}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-6 sm:py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

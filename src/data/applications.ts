@@ -1,8 +1,7 @@
-import clothesImg from "../assets/images/clothes.png";
 import koneSoneImg from "../assets/images/kone_sone.png";
 import taungthulatsweImg from "../assets/images/taung_thu_lat_swe.png";
 
-import { ShoppingCart, Package, Utensils } from "lucide-react";
+import { ShoppingCart, Utensils } from "lucide-react";
 import type { AppItem } from "../types";
 
 export const slides = [
@@ -10,13 +9,13 @@ export const slides = [
     title: "အထည်ဆိုင် စီမံခန့်ခွဲမှုစနစ်",
     subtitle:
       "AI နည်းပညာဖြင့် ဖန်တီးထားသော အခမဲ့ဆော့ဖ်ဝဲလ်ဖြင့် အရောင်း၊ ကုန်လက်ကျန်နှင့် စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်ပါသည်။",
-    image: clothesImg,
+    image: "/ais_pos/poster_img.png",
     badge: "အခမဲ့",
   },
   {
-    title: "ကုန်စုံဆိုင် POS",
+    title: "Online shop POS",
     subtitle:
-      "အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းကိုင်နှင့် ပြေစာထုတ်ခြင်းအထိ တစ်နေရာတည်းတွင် အသုံးပြုနိုင်သော အခမဲ့ POS စနစ်။",
+      "Online shop များအတွက် အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းကိုင်နှင့် ပြေစာထုတ်ခြင်းအထိ တစ်နေရာတည်းတွင် အသုံးပြုနိုင်သော အခမဲ့ POS စနစ်။",
     image: koneSoneImg,
     badge: "အင်တာနက်မလို",
   },
@@ -32,49 +31,97 @@ export const slides = [
 export const applications: AppItem[] = [
   {
     id: "inventory-manager",
-    name: "အထည် စီမံခန့်ခွဲသူ",
-    icon: Package,
+    name: "AIS POS",
+    logo: "/logo.png",
     category: "ရောင်းဝယ်ရေး",
     categoryColor: "bg-emerald-50 text-emerald-700",
     accent: "from-emerald-600 to-emerald-500",
-    version: "1.8.3",
-    downloads: "-",
-    rating: 0,
-    size: "-",
+    version: "1.0.0",
+    downloads: "10",
+    rating: 2,
+    size: "118 MB",
     description:
-      "အထည်ဆိုင်သီးသန့်ဖြစ်လို့ အထည်များကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်သော စနစ်။",
-    screenshots: [clothesImg],
-    status: "preview",
+      "AIS POS သည် မြန်မာဘာသာဖြင့် အသုံးပြုနိုင်ပြီး အင်တာနက်မလိုဘဲ အရောင်းဆိုင်များအတွက် အလွယ်တကူ အသုံးပြုနိုင်သော POS စနစ်ဖြစ်သည်။",
+    screenshots: [
+      "/ais_pos/img2.jpg",
+      "/ais_pos/img3.jpg",
+      "/ais_pos/img4.jpg",
+      "/ais_pos/img5.jpg",
+      "/ais_pos/img6.jpg",
+      "/ais_pos/img7.jpg",
+      "/ais_pos/img8.jpg",
+    ],
+    status: "available",
     features: [
-      "ကုန်လက်ကျန်ကို အချိန်နှင့်တပြေးညီ ကြည့်ရှုနိုင်ခြင်း",
-      "အလွယ်တစ်ကူ စီမံခန့်ခွဲနိုင်ခြင်း",
-      "ဘားကုဒ် ပံ့ပိုးမှု",
+      "QR Code / Barcode ဖတ်ပြီး ကုန်ပစ္စည်း ရှာဖွေခြင်း",
+      "ကုန်ပစ္စည်း အရေအတွက် ထည့်/လျှော့ခြင်း",
+      "အခွန်နှင့် လျော့စျေး ထည့်သွင်းခြင်း",
+      "ဖောက်သည်များ အကြွေးဖြင့် ဝယ်ယူခြင်း",
+      "နေ့စဉ် အရောင်းပမာဏ တွက်ချက်ခြင်း",
+      "Bluetooth ESC/POS ပရင့်တာ ချိတ်ဆက်ခြင်း",
+      "Database Backup / Restore ပါဝင်ခြင်း",
+      "အမြတ်စာရင်ကို အလွယ်တစ်ကူ စီမံနိုင်ခြင်း",
     ],
+    downloadUrl: "https://expo.dev/artifacts/eas/PrwIGFSAOchoLLgHw44yjhkWdsxMfQX55hhTM3Rm91s.apk",
+    apkPureUrl: "https://apkpure.com/p/com.anonymous.clothespos",
+    posterImage: "/ais_pos/poster_img.png",
     howToUse: [
-      "ဆော့ဖ်ဝဲလ်ကို ထည့်သွင်းပါ",
-      "အဝတ်အထည်များ ထည့်သွင်းပါ",
-      "စျေးနူန်းများကို မှတ်တမ်းတင်ပါ",
+      "App ကို Install လုပ်ပြီး ဆိုင်ရှင် အမည်/ဖုန်း/လိပ်စာ ထည့်ပြီး Register လုပ်ပါ",
+      "Home Screen မှ ကုန်ပစ္စည်း ထည့်သွင်းပါ",
+      "Sell Screen တွင် QR Code ဖတ်၍ ရောင်းချပါ",
+      "History မှ အရောင်းမှတ်တမ်း ကြည့်ရှုပါ",
     ],
-    requirements: "Windows 10+၊ RAM 2GB",
+    requirements: "Android ဖုန်းများတွင် အသုံးပြုနိုင်ပါသည်။",
     releaseNotes: "ဘားကုဒ်ဖတ်စက် ပံ့ပိုးမှုအသစ် ထည့်သွင်းထားသည်။",
     faq: [
       {
-        q: "ကုန်ပစ္စည်း ဘယ်လောက်ထိ ထည့်နိုင်ပါသလဲ?",
-        a: "အရေအတွက် အကန့်အသတ်မရှိ ထည့်သွင်းနိုင်ပါတယ်။",
+        q: "AIS POS ကို ဘယ်လို စတင် အသုံးပြုရမလဲ?",
+        a: "App ကို Install လုပ်ပြီးနောက် ဆိုင်ရှင် အမည်/ဖုန်း/လိပ်စာ ထည့်ပြီး Register လုပ်ပါ။ ထို့နောက် Home Screen မှ စတင် အသုံးပြုနိုင်ပါပြီ။",
       },
       {
-        q: "အခမဲ့ အသုံးပြုနိုင်ပါသလား?",
-        a: "ဟုတ်ပါတယ်။ လုံးဝအခမဲ့ အသုံးပြုနိုင်ပါတယ်။",
+        q: "Internet မလိုဘဲ သုံးလို့ ရလား?",
+        a: "ဟုတ်ပါတယ်။ AIS POS သည် အပြည့်အဝ Offline တွင် အလုပ်လုပ်ပါတယ်။ Internet မလိုဘဲ အရောင်း၊ ကုန်စည်၊ စာရင်းဇယား အားလုံးကို သုံးနိုင်ပါတယ်။",
       },
       {
-        q: "အင်တာနက်မလိုဘဲ အသုံးပြုနိုင်ပါသလား?",
-        a: "ဟုတ်ပါတယ်။ Offline ဖြင့် အသုံးပြုနိုင်ပါတယ်။",
+        q: "ဘယ်ဖုန်းတွေမှာ သုံးလို့ ရလဲ?",
+        a: "Android ဖုန်းများတွင် အသုံးပြုနိုင်ပါတယ်။ iOS အတွက် လောလောဆယ် မရရှိသေးပါ။",
       },
+      {
+        q: "ကုန်ပစ္စည်း ဘယ်လို ထည့်ရမလဲ?",
+        a: "Home Screen → ကုန်ပစ္စည်း ထည့်ရန် (Products) ကို နှိပ်ပါ။ '+' ခလုတ်ကို နှိပ်ပြီး ကုန်ပစ္စည်း အမည်၊ ဈေးနှုန်း၊ အရွယ်အစား၊ ကျန်ငွေ ထည့်ပါ။",
+      },
+      {
+        q: "ဖောက်သည် အကြွေးဖြင့် ဘယ်လို ဝယ်ရမလဲ?",
+        a: "Sell Screen တွင် ကုန်ပစ္စည်းများ ထည့်ပြီး Credit Sale ကို ရွေးပါ။ ဖောက်သည် အမည် ရွေးပြီး Confirm လုပ်ပါ။",
+      },
+      {
+        q: "Bluetooth ပရင့်တာ ဘယ်လို ချိတ်ရမလဲ?",
+        a: "Home → ပရင့်တာ (Printer) ကို သွားပြီး Bluetooth ခွင့်ပြုချက် ပေးပါ။ ရှာဖွေပြီး သင့်ပရင့်တာကို ရွေးပါ။",
+      },
+      {
+        q: "Data ဘယ်လို Backup ယူရမလဲ?",
+        a: "Settings → ဖိုင် သိမ်းရန် (Export) ကို နှိပ်ပြီး .db ဖိုင်ကို သင့်ဖုန်းထဲ သိမ်းပါ။",
+      },
+    ],
+    businessTypes: [
+      "အဝတ်အထည်ဆိုင်",
+      "ဖိနပ်ဆိုင်",
+      "အိတ်ဆိုင်",
+      "စာအုပ်ဆိုင်",
+      "ဖုန်းဆိုင်",
+      "ဆေးဝါးဆိုင်",
+      "ကုန်စုံဆိုင်",
+      "ဆန်ဆိုင်",
+      "Mini Market",
+      "Convenience Store",
+      "လျှပ်စစ်ပစ္စည်းဆိုင်",
+      "အိမ်သုံးပစ္စည်းဆိုင်",
+      "အသေးစားစီးပွားရေးလုပ်ငန်းအမျိုးမျိုး"
     ],
   },
   {
     id: "myanmar-pos",
-    name: "ကုန်စုံဆိုင် POS",
+    name: "Online shop POS",
     icon: ShoppingCart,
     category: "ရောင်းဝယ်ရေး",
     categoryColor: "bg-blue-50 text-blue-700",
@@ -84,7 +131,7 @@ export const applications: AppItem[] = [
     rating: 4.8,
     size: "၂၄ MB",
     description:
-      "ကုန်စုံဆိုင်များအတွက် အခမဲ့ POS စနစ်။ အရောင်း၊ ကုန်လက်ကျန်နှင့် စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်သည်။",
+      "Online shop POS သည် online အရောင်းဆိုင်များအတွက် အခမဲ့ POS စနစ်ဖြစ်သည်။ အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်သည်။",
     screenshots: [koneSoneImg],
     status: "disabled",
     features: [

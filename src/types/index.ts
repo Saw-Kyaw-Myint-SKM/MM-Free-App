@@ -8,7 +8,8 @@ export type AppStatus = 'available' | 'preview' | 'disabled';
 export type AppItem = {
   id: string;
   name: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  logo?: string;
   category: string;
   categoryColor: string;
   accent: string;
@@ -24,6 +25,10 @@ export type AppItem = {
   releaseNotes: string;
   faq: Faq[];
   status?: AppStatus;
+  businessTypes?: string[];
+  downloadUrl?: string;
+  apkPureUrl?: string;
+  posterImage?: string;
 };
 
 export function getAppStatus(app: AppItem): AppStatus {

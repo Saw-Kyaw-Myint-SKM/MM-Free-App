@@ -12,7 +12,7 @@ export function ApplicationCard({
 }: {
   app: AppItem;
   onClick: (app: AppItem) => void;
-  onDownload?: (label?: string) => void;
+  onDownload?: (app?: { name?: string; downloadUrl?: string }) => void;
   index?: number;
   compact?: boolean;
 }) {
@@ -63,7 +63,7 @@ export function ApplicationCard({
           }`}
         >
           <img
-            src={app.screenshots[0]}
+            src={app.posterImage || app.screenshots[0]}
             alt={app.name}
             className={`w-full h-full object-cover transition-transform duration-500 ${
               isDisabled
@@ -114,7 +114,7 @@ export function ApplicationCard({
           </div>
 
           <div
-            className={`absolute -bottom-3.5 left-2.5 sm:left-3 rounded-xl flex items-center justify-center shadow-md ring-2 ring-white ${
+            className={`absolute -bottom-3.5 left-2.5 sm:left-3 rounded-xl flex items-center justify-center shadow-md ring-2 ring-white z-10 ${
               compact ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-9 sm:h-9'
             } ${
               isDisabled
@@ -122,11 +122,15 @@ export function ApplicationCard({
                 : `bg-gradient-to-br ${app.accent}`
             }`}
           >
-            <app.icon
-              className={`text-white ${
-                compact ? 'w-3 h-3 sm:w-3.5 sm:h-3.5' : 'w-3.5 h-3.5 sm:w-4 sm:h-4'
-              }`}
-            />
+            {app.logo ? (
+              <img src={app.logo} alt={app.name} className={`${compact ? 'w-5 h-5 sm:w-5 sm:h-5' : 'w-5 h-5 sm:w-5 sm:h-5'} object-cover rounded`} />
+            ) : app.icon ? (
+              <app.icon
+                className={`text-white ${
+                  compact ? 'w-4 h-4 sm:w-4 sm:h-4' : 'w-4 h-4 sm:w-4 sm:h-4'
+                }`}
+              />
+            ) : null}
           </div>
 
           {isDisabled && (
@@ -147,7 +151,7 @@ export function ApplicationCard({
         >
           <div className="mb-1.5 min-w-0">
             <h3
-              className={`font-bold truncate text-[11px] sm:text-xs leading-tight ${
+              className={`font-bold truncate text-[13px] sm:text-xs leading-tight ${
                 isDisabled ? 'text-slate-500' : 'text-slate-900'
               }`}
             >
@@ -211,7 +215,7 @@ export function ApplicationCard({
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                onDownload?.(`${app.name} ဒေါင်းလုဒ်`);
+                onDownload?.(app);
               }}
               className={`w-full px-2 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-semibold text-white bg-gradient-to-r ${app.accent} rounded-lg hover:opacity-90 transition-all flex items-center justify-center gap-1 shadow-sm`}
             >
