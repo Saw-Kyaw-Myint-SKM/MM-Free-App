@@ -104,7 +104,8 @@ export function ApplicationCard({
                 Preview
               </span>
             ) : app.badge ? (
-              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[8px] sm:text-[9px] font-semibold bg-emerald-500 text-white shadow-sm">
+              <span className="inline-flex items-center gap-0.5 px-2 py-1 rounded-md text-[9px] sm:text-[10px] font-bold bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 ring-1 ring-emerald-400">
+                <Star className="w-2.5 h-2.5 fill-white text-white" />
                 {app.badge}
               </span>
             ) : (

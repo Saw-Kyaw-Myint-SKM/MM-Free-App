@@ -71,7 +71,8 @@ export function AppDetail({
                       {app.category}
                     </div>
                     {app.badge && (
-                      <div className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] sm:text-[10px] font-semibold bg-emerald-500 text-white">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-bold bg-emerald-500 text-white shadow-lg shadow-emerald-500/30 ring-1 ring-emerald-400">
+                        <Star className="w-3 h-3 fill-white text-white" />
                         {app.badge}
                       </div>
                     )}
