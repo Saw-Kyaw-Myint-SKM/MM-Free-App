@@ -6,16 +6,16 @@ import type { AppItem } from "../types";
 
 export const slides = [
   {
-    title: "အထည်ဆိုင် စီမံခန့်ခွဲမှုစနစ်",
+    title: "အရောင်း စီမံခန့်ခွဲမှုစနစ်",
     subtitle:
       "AI နည်းပညာဖြင့် ဖန်တီးထားသော အခမဲ့ဆော့ဖ်ဝဲလ်ဖြင့် အရောင်း၊ ကုန်လက်ကျန်နှင့် စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်ပါသည်။",
     image: "/ais_pos/poster_img.png",
     badge: "အခမဲ့",
   },
   {
-    title: "Online shop POS",
+    title: "အွန်လိုင်း ဆိုင် POS",
     subtitle:
-      "Online shop များအတွက် အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းကိုင်နှင့် ပြေစာထုတ်ခြင်းအထိ တစ်နေရာတည်းတွင် အသုံးပြုနိုင်သော အခမဲ့ POS စနစ်။",
+      "Online Shop များအတွက် အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းကိုင်နှင့် ပြေစာထုတ်ခြင်းအထိ အသုံးပြုနိုင်သော အခမဲ့ POS စနစ်။",
     image: koneSoneImg,
     badge: "အင်တာနက်မလို",
   },
@@ -126,7 +126,7 @@ export const applications: AppItem[] = [
   },
   {
     id: "myanmar-pos",
-    name: "Online shop POS",
+    name: "အွန်လိုင်း ဆိုင် POS",
     icon: ShoppingCart,
     category: "ရောင်းဝယ်ရေး",
     categoryColor: "bg-blue-50 text-blue-700",
@@ -136,7 +136,7 @@ export const applications: AppItem[] = [
     rating: 4.8,
     size: "၂၄ MB",
     description:
-      "Online shop POS သည် online အရောင်းဆိုင်များအတွက် အခမဲ့ POS စနစ်ဖြစ်သည်။ အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်သည်။",
+      "အွန်လိုင်း ဆိုင် POS သည် အွန်လိုင်း အရောင်းဆိုင်များအတွက် အခမဲ့ POS စနစ်ဖြစ်သည်။ အရောင်း၊ ကုန်လက်ကျန်၊ စာရင်းများကို လွယ်ကူစွာ စီမံခန့်ခွဲနိုင်သည်။",
     screenshots: [koneSoneImg],
     status: "disabled",
     features: [
