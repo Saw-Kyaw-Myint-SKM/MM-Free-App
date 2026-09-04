@@ -108,9 +108,10 @@ export default function App() {
         a.download = "";
         document.body.appendChild(a);
         a.click();
-        document.body.removeChild(a);
-      }
-    } else {
+      document.body.removeChild(a);
+    }
+    show("ဒေါင်းလုဒ်စတင်ပါပြီ။ Downloads တွင် ကြည့်ပါ။");
+  } else {
       show(
         app?.name
           ? `${app.name} မကြာမီ ရရှိမည်။`
