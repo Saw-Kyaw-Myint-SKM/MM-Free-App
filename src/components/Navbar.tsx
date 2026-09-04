@@ -76,7 +76,7 @@ export function Navbar({
                 </button>
               );
             })}
-            {isInstallable && (
+            {isInstallable ? (
               <button
                 onClick={install}
                 className="ml-2 px-3 py-1.5 rounded-lg transition-all font-medium text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5"
@@ -84,23 +84,44 @@ export function Navbar({
                 <Download className="w-3.5 h-3.5" />
                 Install
               </button>
+            ) : (
+              <a
+                href="https://apkpure.com/p/com.anonymous.clothespos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-2 px-3 py-1.5 rounded-lg transition-all font-medium text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Install
+              </a>
             )}
           </div>
 
-          {isInstallable && (
+          <div className="flex items-center gap-1.5 lg:hidden">
+            {isInstallable ? (
+              <button
+                onClick={install}
+                className="p-1.5 rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1 text-[11px] font-medium"
+              >
+                <Download className="w-4 h-4" />
+                Install
+              </button>
+            ) : (
+              <button
+                onClick={() => window.open("https://apkpure.com/p/com.anonymous.clothespos", "_blank")}
+                className="p-1.5 rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1 text-[11px] font-medium"
+              >
+                <Download className="w-4 h-4" />
+                Install
+              </button>
+            )}
             <button
-              onClick={install}
-              className="lg:hidden p-1.5 rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100"
+              className="p-1.5 rounded-lg text-slate-900"
+              onClick={() => setIsOpen(!isOpen)}
             >
-              <Download className="w-4 h-4" />
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-          )}
-          <button
-            className="lg:hidden p-1.5 rounded-lg text-slate-900"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </div>
         </div>
       </div>
 
