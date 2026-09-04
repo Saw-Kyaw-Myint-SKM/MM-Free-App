@@ -70,6 +70,11 @@ export function AppDetail({
                     >
                       {app.category}
                     </div>
+                    {app.badge && (
+                      <div className="inline-flex items-center px-2 py-0.5 rounded-md text-[9px] sm:text-[10px] font-semibold bg-emerald-500 text-white">
+                        {app.badge}
+                      </div>
+                    )}
                     {isPreview && (
                       <div className="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-md text-[9px] sm:text-[10px] font-semibold bg-sky-600 text-white">
                         <Clock className="w-3 h-3" />

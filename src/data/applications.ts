@@ -65,6 +65,7 @@ export const applications: AppItem[] = [
     downloadUrl: "https://expo.dev/artifacts/eas/PrwIGFSAOchoLLgHw44yjhkWdsxMfQX55hhTM3Rm91s.apk",
     apkPureUrl: "https://apkpure.com/p/com.anonymous.clothespos",
     posterImage: "/ais_pos/poster_img.png",
+    badge: "အခမဲ့",
     howToUse: [
       "App ကို Install လုပ်ပြီး ဆိုင်ရှင် အမည်/ဖုန်း/လိပ်စာ ထည့်ပြီး Register လုပ်ပါ",
       "Home Screen မှ ကုန်ပစ္စည်း ထည့်သွင်းပါ",

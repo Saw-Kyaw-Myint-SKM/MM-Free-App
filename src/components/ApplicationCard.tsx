@@ -103,6 +103,10 @@ export function ApplicationCard({
                 <Eye className="w-2.5 h-2.5" />
                 Preview
               </span>
+            ) : app.badge ? (
+              <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[8px] sm:text-[9px] font-semibold bg-emerald-500 text-white shadow-sm">
+                {app.badge}
+              </span>
             ) : (
               <span className="sm:hidden inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md bg-white/90 backdrop-blur-sm">
                 <Star className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />

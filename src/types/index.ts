@@ -29,6 +29,7 @@ export type AppItem = {
   downloadUrl?: string;
   apkPureUrl?: string;
   posterImage?: string;
+  badge?: string;
 };
 
 export function getAppStatus(app: AppItem): AppStatus {
