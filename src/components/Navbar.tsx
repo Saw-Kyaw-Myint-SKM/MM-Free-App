@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Menu, X, Home, Grid3X3, Mail, Download } from "lucide-react";
+import { Menu, X, Home, Grid3X3, Mail } from "lucide-react";
 import logo from "../assets/images/Logo.png";
-import { useInstallPrompt } from "../hooks/useInstallPrompt";
 
 export function Navbar({
   currentPage: _currentPage,
@@ -15,7 +14,6 @@ export function Navbar({
   onCtaClick?: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { isInstallable, install } = useInstallPrompt();
 
   const navItems = [
     { label: "ပင်မ", icon: Home, id: "home" },
@@ -76,32 +74,14 @@ export function Navbar({
                 </button>
               );
             })}
-            {isInstallable ? (
-              <button
-                onClick={install}
-                className="ml-2 px-3 py-1.5 rounded-lg transition-all font-medium text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5"
-              >
-                <Download className="w-3.5 h-3.5" />
-                Install
-              </button>
-            ) : null}
           </div>
 
-          <div className="flex items-center gap-1.5 lg:hidden">
-            <button
-              onClick={install}
-              className="p-1.5 rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1 text-[11px] font-medium"
-            >
-              <Download className="w-4 h-4" />
-              Install
-            </button>
-            <button
-              className="p-1.5 rounded-lg text-slate-900"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          <button
+            className="lg:hidden p-1.5 rounded-lg text-slate-900"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
@@ -125,15 +105,6 @@ export function Navbar({
                 </button>
               );
             })}
-            {isInstallable && (
-              <button
-                onClick={() => { install(); setIsOpen(false); }}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all text-blue-600 bg-blue-50 hover:bg-blue-100"
-              >
-                <Download className="w-4 h-4" />
-                <span className="font-medium text-xs">Install App</span>
-              </button>
-            )}
           </div>
         </div>
       )}
