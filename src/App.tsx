@@ -99,7 +99,17 @@ export default function App() {
 
   const handleDownload = (app?: { name?: string; downloadUrl?: string }) => {
     if (app?.downloadUrl) {
-      window.open(app.downloadUrl, "_blank");
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.open(app.downloadUrl, "_blank");
+      } else {
+        const a = document.createElement("a");
+        a.href = app.downloadUrl;
+        a.download = "";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
     } else {
       show(
         app?.name
