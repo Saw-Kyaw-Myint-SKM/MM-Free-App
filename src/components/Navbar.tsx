@@ -87,6 +87,14 @@ export function Navbar({
             )}
           </div>
 
+          {isInstallable && (
+            <button
+              onClick={install}
+              className="lg:hidden p-1.5 rounded-lg text-blue-600 bg-blue-50 hover:bg-blue-100"
+            >
+              <Download className="w-4 h-4" />
+            </button>
+          )}
           <button
             className="lg:hidden p-1.5 rounded-lg text-slate-900"
             onClick={() => setIsOpen(!isOpen)}
