@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Menu, X, Home, Grid3X3, Mail } from "lucide-react";
+import { Menu, X, Home, Grid3X3, Mail, Download } from "lucide-react";
 import logo from "../assets/images/Logo.png";
+import { useInstallPrompt } from "../hooks/useInstallPrompt";
 
 export function Navbar({
   currentPage: _currentPage,
@@ -14,6 +15,7 @@ export function Navbar({
   onCtaClick?: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { isInstallable, install } = useInstallPrompt();
 
   const navItems = [
     { label: "ပင်မ", icon: Home, id: "home" },
@@ -74,6 +76,15 @@ export function Navbar({
                 </button>
               );
             })}
+            {isInstallable && (
+              <button
+                onClick={install}
+                className="ml-2 px-3 py-1.5 rounded-lg transition-all font-medium text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5"
+              >
+                <Download className="w-3.5 h-3.5" />
+                Install
+              </button>
+            )}
           </div>
 
           <button
@@ -105,6 +116,15 @@ export function Navbar({
                 </button>
               );
             })}
+            {isInstallable && (
+              <button
+                onClick={() => { install(); setIsOpen(false); }}
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all text-blue-600 bg-blue-50 hover:bg-blue-100"
+              >
+                <Download className="w-4 h-4" />
+                <span className="font-medium text-xs">Install App</span>
+              </button>
+            )}
           </div>
         </div>
       )}
