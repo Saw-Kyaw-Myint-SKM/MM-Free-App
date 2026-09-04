@@ -29,7 +29,7 @@ function HomePage({
   onDownload,
 }: {
   onSelectApp: (app: AppItem) => void;
-  onDownload: (label?: string) => void;
+  onDownload: (app?: { name?: string; downloadUrl?: string }) => void;
 }) {
   return (
     <main
@@ -48,7 +48,7 @@ function AppDetailPage({
   onBack,
 }: {
   onSelectApp: (app: AppItem) => void;
-  onDownload: (label?: string) => void;
+  onDownload: (app?: { name?: string; downloadUrl?: string }) => void;
   onBack: () => void;
 }) {
   const { appId } = useParams<{ appId: string }>();
@@ -150,7 +150,7 @@ export default function App() {
         currentPage={currentPage}
         activeNav={activeNav}
         onNavigate={handleNavigate}
-        onCtaClick={() => showComingSoon("စတင်ရန်")}
+        onCtaClick={() => handleDownload({ name: "စတင်ရန်" })}
       />
       <AnnouncementMarquee />
 

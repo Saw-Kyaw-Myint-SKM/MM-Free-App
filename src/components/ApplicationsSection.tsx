@@ -9,7 +9,7 @@ export function ApplicationsSection({
   onDownload,
 }: {
   onSelectApp: (app: AppItem) => void;
-  onDownload?: (label?: string) => void;
+  onDownload?: (app?: { name?: string; downloadUrl?: string }) => void;
 }) {
   const [filter, setFilter] = useState("အားလုံး");
   const [searchQuery, setSearchQuery] = useState("");
