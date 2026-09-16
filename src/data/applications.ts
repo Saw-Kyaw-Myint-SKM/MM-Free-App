@@ -30,7 +30,7 @@ export const slides = [
 
 export const applications: AppItem[] = [
   {
-    id: "inventory-manager",
+    id: "ais-pos",
     name: "AIS POS",
     logo: "/logo.png",
     category: "ရောင်းဝယ်ရေး",
@@ -62,7 +62,7 @@ export const applications: AppItem[] = [
       "Database Backup / Restore ပါဝင်ခြင်း",
       "အမြတ်စာရင်ကို အလွယ်တစ်ကူ စီမံနိုင်ခြင်း",
     ],
-    downloadUrl: "https://expo.dev/artifacts/eas/PrwIGFSAOchoLLgHw44yjhkWdsxMfQX55hhTM3Rm91s.apk",
+    downloadUrl: "https://github.com/Saw-Kyaw-Myint-SKM/AIS-Release/releases/download/version-2/v2.apk",
     apkPureUrl: "https://apkpure.com/p/com.anonymous.clothespos",
     posterImage: "/ais_pos/poster_img.png",
     badge: "အခမဲ့",
