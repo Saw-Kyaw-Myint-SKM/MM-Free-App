@@ -38,8 +38,8 @@ export const applications: AppItem[] = [
     accent: "from-emerald-600 to-emerald-500",
     version: "1.0.0",
     downloads: "10",
-    rating: 2,
-    size: "118 MB",
+    rating: 5,
+    size: "130 MB",
     description:
       "AIS POS သည် မြန်မာဘာသာဖြင့် အသုံးပြုနိုင်ပြီး အင်တာနက်မလိုဘဲ အရောင်းဆိုင်များအတွက် အလွယ်တကူ အသုံးပြုနိုင်သော POS စနစ်ဖြစ်သည်။",
     screenshots: [
