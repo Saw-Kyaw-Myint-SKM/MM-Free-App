@@ -111,6 +111,7 @@ export default function App() {
       document.body.removeChild(a);
     }
     show("ဒေါင်းလုဒ်စတင်ပါပြီ။ Downloads တွင် ကြည့်ပါ။");
+    localStorage.setItem("ais_pos_downloaded", "true");
   } else {
       show(
         app?.name
